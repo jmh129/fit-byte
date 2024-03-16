@@ -1,0 +1,7 @@
+{
+  "name": "FitByte",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
