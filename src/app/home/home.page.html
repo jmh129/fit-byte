@@ -14,7 +14,10 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-md="8" offset-md="2">
-        <ion-searchbar placeholder="Search Restaurants"></ion-searchbar>
+        <ion-searchbar
+          color="primary"
+          placeholder="Search Restaurants"
+        ></ion-searchbar>
       </ion-col>
       <ion-col size="12" size-md="8" offset-md="2">
         <ion-card>
@@ -31,4 +34,71 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button id="open-modal">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Upload Nutrition Info</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-text>
+                <h2>Upload Nutritional Information</h2>
+                <p>
+                  Select an image to upload nutritional information from a
+                  restaurant menu.
+                </p>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-item lines="none">
+                <ion-label>Select File: some-file.pdf</ion-label>
+                <ion-button slot="end" fill="clear" size="large">
+                  <ion-icon name="cloud-upload-outline"></ion-icon>
+                </ion-button>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-text>
+                <h2>Preview</h2>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-img
+                src="https://ionicframework.com/docs/img/demos/card-media.png"
+              ></ion-img>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button expand="block" (click)="confirm()" strong="true"
+                >Upload</ion-button
+              >
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
